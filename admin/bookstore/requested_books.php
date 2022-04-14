@@ -107,7 +107,7 @@ include("../includes/connect.php");
                       <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body text-center">
-                            <?php echo'<img src="../../bookstore/uploads/'.$row_BookStore['BookStore_Image'].'" alt="image for book" width="240px" height="250px" Style="padding: 10px">'?>
+                            <?php echo'<img src="../../bookstore/uploads/'.$row_BookStore['BookStore_Image'].'" alt="image for book" width="100%" height="50%" Style="padding: 10px">'?>
                             <h2 class="mb-0 font-weight-bold mt-2 text-dark"><?php echo substr($row_Book['Book_Name'],0, 18)?><?php echo '...'?></h2>
                             <h5 class="mb-0 font-weight-bold mt-2 text-dark"><?php echo substr($row_Book['Author_Name'], 0, 24) ?><?php echo '...'?></h5>
                             <h3 class="mb-0 font-weight-bold mt-2 text-dark">Price:<span style="color:red;"><?php echo ' '; echo $row_BookStore['BookStore_Price']; echo ' '; ?></span></h3>

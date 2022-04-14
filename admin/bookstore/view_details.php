@@ -65,7 +65,7 @@ if(isset($_POST['details'])){
                         <div class="card card-danger-gradient">
                           <div class="card-body mb-4">
                             <h4 class="card-title text-white"><?php echo $row_Book['Book_Name'] ?></h4>
-                            <?php echo'<img src="../../bookstore/uploads/'.$row_BookStore['BookStore_Image'].'" alt="image for book" width="420px" height="420px" Style="padding: 10px">'?>
+                            <?php echo'<img src="../../bookstore/uploads/'.$row_BookStore['BookStore_Image'].'" alt="image for book" width="100%" height="90%" Style="padding: 10px">'?>
                           </div>
                           <div class="card-body bg-white pt-4">
                             <div class="row pt-4">

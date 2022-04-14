@@ -95,6 +95,7 @@ else if($_SESSION['email']==true)
     $Seller_ID = $row_Book['BookStore_Seller_ID'];
     $query_run_Seller = mysqli_query($conn,"SELECT * FROM user WHERE User_ID = '$Seller_ID'");
     $row_Seller = mysqli_fetch_assoc($query_run_Seller);
+    $Buyer_ID = $row_Buyer['User_ID'];
 
     $Book_ID = $row_Book['BookStore_ISBN_ID'];
     $query_run_BookName = mysqli_query($conn,"SELECT * FROM books WHERE ISBN = '$Book_ID'");
@@ -126,8 +127,8 @@ else if($_SESSION['email']==true)
 
     if(mail($mail_Seller, $subject_Seller, $body_Seller, $headers)) {
       if(mail($mail_Buyer, $subject_Buyer, $body_Buyer, $headers)){
-        $query_run_Update = mysqli_query($conn,"UPDATE bookstore  SET BookStore_BuyStatus = 'REQUESTED' WHERE BookStore_Book_Id = '$id'");
-        if(query_run_Update){
+        $query_run_Update = mysqli_query($conn,"UPDATE bookstore  SET BookStore_BuyStatus = 'REQUESTED', BookStore_Buyer_ID = '$Buyer_ID' WHERE BookStore_Book_Id = '$id'");
+        if($query_run_Update){
           echo "<script type='text/javascript'>alert('Request has been sent!!!');window.location='../your_orders.php';</script>";
         }
         else{

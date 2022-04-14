@@ -90,7 +90,7 @@ $Evaluate_id = $_GET['Evaluate_id'];
 
                     <div class="form-group">
                      <?php 
-                     $query = "SELECT * FROM paper_solutions WHERE ps_id ='$ps_id'";
+                     $query = "SELECT * FROM paper_solutions WHERE paper_id ='$ps_id'";
                      $query_run = mysqli_query($conn, $query);
                      while($row = mysqli_fetch_assoc($query_run))
                      {
@@ -184,7 +184,7 @@ $uploadfile = $uploaddir . basename($_FILES['filename']['name']);
 $newfilename= date('dmY_His_').str_replace(" ", "", basename($_FILES["filename"]["name"]));
 $doctype=$_FILES['filename']['type'];
 
-$update = "update paper_solutions set psfile_name ='$newfilename',description ='$desc' where ps_id='$ps_id'";
+$update = "update paper_solutions set psfile_name ='$newfilename',description ='$desc' where paper_id='$ps_id'";
 
 if (move_uploaded_file($_FILES['filename']['tmp_name'],$uploaddir . $newfilename) && unlink($uploaddir.$oldfilename)) {
 

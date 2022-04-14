@@ -178,7 +178,7 @@ include "includes/connect.php";
                       {
                       ?> 
                       <tr> 
-                        <td><center><?php echo $object->ps_id  ?></center></td>
+                        <td><center><?php echo $object->paper_id  ?></center></td>
                         <td><?php echo $object->psfile_name ?></td>
                         <td><?php echo $object->description ?></td>
                           
@@ -188,10 +188,10 @@ include "includes/connect.php";
                           <input type="hidden" name="eval" value="<?php echo $Evaluate_ID; ?>">
                           <div class ="row">
                             <div class = "col-sm-5">
-                              <button name="edit" type="edit" value=<?php echo $object->ps_id;?> class="btn btn-outline-danger">Edit</button>
+                              <button name="edit" type="edit" value=<?php echo $object->paper_id;?> class="btn btn-outline-danger">Edit</button>
                             </div>
                             <div class = "col-sm-5">
-                              <button name="delete" type="delete" value=<?php echo $object->ps_id;?> class="btn btn-outline-danger">Delete</button>
+                              <button name="delete" type="delete" value=<?php echo $object->paper_id;?> class="btn btn-outline-danger">Delete</button>
                             </div>
                           </div>
                           

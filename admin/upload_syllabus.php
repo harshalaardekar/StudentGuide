@@ -183,7 +183,10 @@ if (move_uploaded_file($_FILES['filename']['tmp_name'],$uploaddir . $newfilename
     $result = mysqli_query($conn,$insert);
     if($result){
       echo "<script> alert('Syllabus uploaded successfully')</script>";
-    header("refresh:0; url=selectsemdept.php?Page=UploadSyllabus");
+    // header("refresh:0; url=selectsemdept.php?Page=UploadSyllabus");
+
+    echo "<script type='text/javascript'>window.location='selectsemdept.php?Page=UploadSyllabus';</script>";
+
     }
     else{
       echo "Error : ".mysqli_error();

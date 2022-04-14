@@ -118,13 +118,13 @@ if($_SESSION['email']==true)
     while($row_BookStore = mysqli_fetch_array($query_BookStore)) 
     {
       $temp = $row_BookStore['BookStore_ISBN_ID'];
-      $query_Book = mysqli_query($conn, "SELECT * FROM book WHERE ISBN_ID = '$temp'");
+      $query_Book = mysqli_query($conn, "SELECT * FROM books WHERE ISBN = '$temp'");
       $row_Book =  mysqli_fetch_assoc($query_Book);
 ?> 
             <tr>
             <td><center><?php echo $no ?></center></td>
-              <td><?php echo $row_Book['Book_BookName']?></td>
-              <td><?php echo $row_Book['Book_AuthorName']?></td>
+              <td><?php echo $row_Book['Book_Name']?></td>
+              <td><?php echo $row_Book['Author_Name']?></td>
               <td><center><?php echo $row_BookStore['BookStore_Price']?></center></td>
               <td><?php echo '<img src = "uploads/'.$row_BookStore['BookStore_Image'].'" width = "100px" height = "100px" alt = "">'?></td>
               <td><center><?php echo $row_BookStore['BookStore_BuyStatus']?></center></td>

@@ -111,7 +111,7 @@ while ($object = $records->fetch_object())
                         <form class="form" action="" method="POST"  >
                           <input type="hidden" name="eval" value="<?php echo $evaluate_ID; ?>">
 
-                          <a class="ex1" href="Syllabus.php?ID=<?php echo $object->syllabus_id; ?>" target="_blank"><?php echo $object->sfile_name?></a>
+                          <a class="ex1" href="Syllabus.php?ID=<?php echo $object->syllabus_id; ?>" target="_blank"><?php echo $object->description?></a>
 
 
                           <!-- <button class="button" name="view" style="border: none; font-size: 14px;" value=<?php echo $object->paper_id;?> class="btn btn-outline-danger"><u style="color: blue;"><?php echo $object->psfile_name?></u></button><br> -->
