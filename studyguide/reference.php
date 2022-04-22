@@ -42,7 +42,7 @@ include("includes/connect.php");
 </head>
 
 <body>
-
+<?php $eval = $_GET['ID']; ?>
   <!-- ======= Header ======= -->
   <?php include "header.php"; ?>
 <!-- End Header -->
@@ -53,11 +53,11 @@ include("includes/connect.php");
       <div class="container" data-aos="fade-up">
         <section id="portfolio" class="portfolio">
           <div class="container" data-aos="fade-up">
+            <a href="menu.php?ID=<?php echo $eval;?>" style="margin-left: 90%;font-size: 18px;">Back</a>
 			</div>
         </section><!-- End Portfolio Section -->
         <div class="row">
 <?php
-$eval = $_GET['ID'];
 $query = "SELECT * FROM books WHERE Evaluate_ID = '$eval'";
 $query_run = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($query_run))
@@ -106,6 +106,6 @@ if(isset($_POST['view_details']))
 {
   $bookID = $_POST['view_details'];
   
-  echo "<script type='text/javascript'>window.location='view_details.php?ID=$bookID';</script>";
+  echo "<script type='text/javascript'>window.location='view_details.php?ID=$bookID&Evaluate_ID=$eval';</script>";
 }
 ?>

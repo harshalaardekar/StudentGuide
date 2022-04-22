@@ -279,7 +279,7 @@
   
       // $eval = $_GET['Evaluate_ID'];
       // $book_query = ""
-
+        $eval = $_GET['Evaluate_ID'];
       $bookID = $_GET['Book_ID'];
       $_SESSION['Book_ID'] = $bookID;
       $query = "SELECT * FROM books WHERE Book_ID = '$bookID'";
@@ -292,7 +292,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-       
+        <a href="recommendation.php?Evaluate_ID=<?php echo $eval;?>" style="margin-left: 90%;font-size: 18px;">Back</a>
       </div>
     </section><!-- End Breadcrumbs -->
     <!-- ======= Portfolio Details Section ======= -->

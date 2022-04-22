@@ -18,22 +18,8 @@ include "includes/connect.php";
           <li><a class="nav-link scrollto" href="../bookstore/viewbooks.php?dept=All&sem=All">Bookstore</a></li>
           <li><a class="nav-link scrollto" href="../notestore/viewnotes.php?dept=All&sem=All">Notestore</a></li>
 		  <li><a class="nav-link scrollto" href="#">Contact</a></li>
-      <?php 
-include("includes/connect.php"); 
-// session_start();
-if (isset($_SESSION['email'])) {
-  ?>
       <li><a class="getstarted scrollto" href="includes/logout.php">Logout</a></li>
-  <?php
-}
-else
-{
-  ?>
-  
-      <li><a class="getstarted scrollto" href="includes/login.php">Login/Register</a></li>
-  <?php
-}
-?>
+      <!--  -->
 
 		  <!--<li><a class="getstarted scrollto" href="includes/login.php">Login/Register</a></li>
 }

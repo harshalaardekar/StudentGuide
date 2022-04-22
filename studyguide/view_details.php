@@ -98,7 +98,7 @@ include("includes/connect.php");
 
   <main id="main">
 <?php
-  
+      $eval = $_GET['Evaluate_ID'];
       $bookID = $_GET['ID'];
       $query = "SELECT * FROM books WHERE Book_ID = '$bookID'";
       $query_run = mysqli_query($conn, $query);
@@ -116,7 +116,7 @@ include("includes/connect.php");
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
+       <a href="reference.php?ID=<?php echo $eval;?>" style="margin-left: 90%;font-size: 18px;">Back</a>
         <div class="row gy-4">
 
           <div class="col-lg-4">

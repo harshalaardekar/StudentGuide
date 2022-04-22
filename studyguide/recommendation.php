@@ -51,18 +51,6 @@ session_start();
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
-
-      <div class="container" data-aos="fade-up">
-        <section id="portfolio" class="portfolio">
-          <div class="container" data-aos="fade-up">
-
-            </div>
-        </section><!-- End Portfolio Section -->
-        <div class="row">
-
-        
-
-            
 <?php
 $eval = $_GET['Evaluate_ID'];
 $query = "SELECT * FROM books WHERE Evaluate_ID = '$eval' AND Initial_Rating = (SELECT MAX(Initial_Rating) FROM books WHERE Evaluate_ID = '$eval')";
@@ -71,6 +59,15 @@ while($row = mysqli_fetch_assoc($query_run))
 {
   $temp = $row['Book_ID'];
 ?>
+      <div class="container" data-aos="fade-up"><br><br>
+        <a href="menu.php?ID=<?php echo $eval;?>" style="margin-left: 90%;font-size: 18px;">Back</a>
+        
+        <div class="row">
+
+        
+
+            
+
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 20px">
             <div class="icon-box">
               <img src="<?php echo $row['Book_Image'];  ?>" width="240px" height="280px">
@@ -119,6 +116,6 @@ if(isset($_POST['view_details']))
 {
   $bookID = $_POST['view_details'];
   
-  echo "<script type='text/javascript'>window.location='review_book.php?Book_ID=$bookID';</script>";
+  echo "<script type='text/javascript'>window.location='review_book.php?Book_ID=$bookID&Evaluate_ID=$eval';</script>";
 }
 ?>

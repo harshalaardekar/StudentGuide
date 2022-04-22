@@ -91,7 +91,7 @@ input{
 <body style="background-image:url(back.jpg);">
   
        <div class="container position-relative" style="margin-top:150px;margin-left: 150px;">
-        <form action="includes/process.php" method="post">
+        <form action="includes/send_otp.php" method="post">
             <input type="text" name="fn" placeholder="Enter First Name" required>
             <input type="text" name="ln" placeholder="Enter Last Name" required>   
             <br><br> 
