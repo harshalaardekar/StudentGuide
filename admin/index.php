@@ -1,362 +1,154 @@
-<?php
-    include("includes/connect.php");
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Student Guide | Admin Dashboard</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <?php include "topnav.php"; ?>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <?php include "sidenav.php"; ?>
-        <!-- partial -->
-        <div class="main-panel">
+
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Student Guide</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor - v4.2.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
 
 
-          <div class="content-wrapper"><i class="mdi mdi-close" id="bannerClose" hidden="true"></i>
-         
-          	<h1 class="text-dark font-weight-bold mb-2"> Overview Of Data </h1>
 
+input[type="email"], input[type="password"], input[type="text"]{
+border: none;
+border-bottom: 1px solid #ffffff;
+background: transparent;
+outline: none;
+height: 40px;
+color: #ffffff;
+font-size: 16px;
+width: 300px;
+margin-bottom: 20px;
+}
+input[type="checkbox"]{
+color: #ffffff;
+opacity: 1;
+border-radius: 0px;
+}
+input[type="submit"]{
+border: none;
+border-radius: 20px;
+color: #ffffff;
+background-color: red;
+outline: none;
+height: 40px;
+font-size: 18px;
+ width: 300px;
+    margin-bottom: 20px;
+}
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border {">
+input[type="submit"]:hover{
+cursor: pointer;
+background-color: #ffc107;
+color: #000;
+}
+/*.zoom {
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+}
 
-                  <ul class="nav nav-tabs tab-transparent" role="tablist">
-                    <li class="nav-item active"><a class="nav-link active" data-toggle="tab" href="#users">Overview</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#books">Books</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes">Study Material</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#review">Reviews</a></li>
-                  </ul>
+@keyframes example {
+   0%   {right:300px; top:0px;}
+  0%   {left:500px; top:0px;}
+  100%  {left:150px; top:100px;}
+}*/
 
-                </div>
-               
-               <div class="tab-content" align="center">
-                    
-                    <div id="review" class="tab-pane fade">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from review_table";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total1=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/review.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total1; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Reviews for books</h3><br>
+</style>
+</head>
 
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from review_notes";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/review.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Reviews for Notes</h3><br>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <img src="assets/images/auser.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total+$total1; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Active Users</h3><br>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="users" class="tab-pane fade show active" align="align-items-centers">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from user";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/users.png" height="65%" width="65%" />
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Users</h3>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from evaluate";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Subjects</h3><br>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from user Group By 'Branch'";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Branch</h3><br>
-
-                          </div>
-                        </div>
-                         <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from user Group By 'Semester'";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Semesters</h3><br>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="books" class="tab-pane fade">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from books";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                           <img src="assets/images/books.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Books</h3><br>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from bookstore";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/bookstore.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Available in Bookstore</h3><br>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="notes" class="tab-pane fade">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from notes";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/notes.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total Notes</h3><br>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from notesstore";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/notes.jpg" height="70%" width="70%" /><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Available in Notesstore</h3><br>
-
-                          </div>
-                        </div>
-                        <div class="card">
-                          <div class="card-body text-center">
-                            
-                            <?php 
-                              $sql="select count(*) as total from paper_solutions";
-                              $result = $conn->query($sql);
-                              if ($result->num_rows > 0) 
-                                          {
-                                          // output data of each row
-                                          while($row = $result->fetch_assoc()) {
-                                            $total=$row["total"];
-                                          }
-                                          }
-                              ?>  
-                            
-                            <img src="assets/images/ps.jpg" height="70%" width="70%"/><br><br>
-                            <h1 class="mb-4 text-dark font-weight-bold"><?php echo $total; ?></h1>
-                            <h3 class="mb-2 text-dark font-weight-normal">Total papersolutions</h3><br>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
+<body style="background-image:url(../back.jpg);">
+       <div class="container position-relative" style="margin-top:150px;margin-left: 150px;">
+        <form class="form" method="post" action="">
+                    <div class="form-group has-feedback">
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                   </div>
+                  <div class="form-group has-feedback">
+                    <input type="password" name="password" id="password" placeholder="Password"><br>
+                    <input type="checkbox" onclick="myFun()">&nbsp;<b><font color="black">Show Password</font></b>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span><br>
 
-                </div>
-
-              </div>
-   
-            </div>
-
-
-
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="footer-inner-wraper">
-              <div class="d-sm-flex justify-content-center ">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © StudentGuide.com 2020</span>
-                
-              </div>
-            </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+                  </div><br>
+                  
+            <input type="submit" name="submit" value="submit">
+            
+        </form>
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="assets/vendors/jquery-circle-progress/js/circle-progress.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <!-- End custom js for this page -->
-  </body>
+    </div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/lottie.min.js"></script>
+<script src="js/custom.js"></script>
+ <script>
+                function myFun() {
+                  var x = document.getElementById("password");
+                  if (x.type === "password") {
+                    x.type = "text";
+                  } else {
+                    x.type = "password";
+                  }
+                }
+  </script>
+</body>
 </html>
+
+
+<?php 
+
+if(isset($_POST['submit']))
+{
+$username=$_POST['username'];
+$password=$_POST['password'];
+
+if ($username == "admin" && $password=="admin")
+{
+   echo "<script type='text/javascript'>alert('Login Successful!!!');window.location='dashboard.php';</script>";
+}
+else
+{
+   echo "<script type='text/javascript'>alert('Invalid Cradentials!!!');window.location='index.php';</script>";
+}
+}
+
+?>

@@ -141,9 +141,13 @@ if(isset($_POST['submit'])) {
         $query1 = "INSERT INTO user (User_FN, User_LN, User_Email, User_ContactNo, User_Password, User_Status) values ('$fn', '$ln', '$mail', '$contact', '$pass', 'Active')";
         $data1 = mysqli_query($conn, $query1);
         if($data1){
-            echo "<script>alert( 'Registration Successful' )</script>";
             $_SESSION['email'] = $mail;
-            header("location:home.php");
+            unset($_SESSION['email']);
+            unset($_SESSION['otp']);
+   
+            if(session_destroy()){
+        echo "<script type='text/javascript'>alert('Registration Successful');window.location='index.php';</script>";
+    }
         }
         else{
             echo "<script>alert('Something went wrong, please register again!')</script>";

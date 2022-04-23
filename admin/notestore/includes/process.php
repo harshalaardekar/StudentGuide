@@ -17,6 +17,8 @@ include("../../../includes/connect.php");
       }
   }
 
+
+
   if(isset($_POST['mark_as_read']))
   {
     $id=$_POST['mark_as_read'];

@@ -2,7 +2,7 @@
           <ul class="nav">
             <li class="nav-item nav-category">Main</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.php">
+              <a class="nav-link" href="dashboard.php">
                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -68,18 +68,12 @@
                 <span class="menu-title">Notes Store</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
-                <span class="menu-title">Solve Complaints</span>
-              </a>
-            </li>
             
           
             <li class="nav-item sidebar-user-actions">
               <div class="user-details">
                 <div class="d-flex justify-content-between align-items-center">
-                  <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                  <a class="nav-link" href="index.php">
                   <span class="menu-title">Log Out</span></a>
                 </div>
               </div>

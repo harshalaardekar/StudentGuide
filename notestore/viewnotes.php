@@ -170,7 +170,7 @@ if($_SESSION['email']==true)
       {
 ?>
               <form class="form" method="post" action="includes/process.php">
-                <button type="delete" name="delete" value=<?php echo $row_NoteStore['Notes_ID'];?> style="margin-top: 10px; width:100%" class="btn btn-outline-danger">Delete</button>
+                <button type="delete" name="delete1" value=<?php echo $row_NoteStore['Notes_ID'];?> style="margin-top: 10px; width:100%" class="btn btn-outline-danger">Delete</button>
               </form>
 
 <?php

@@ -111,7 +111,7 @@ $Buyer_id=$row_Buyer['User_ID'];
 
               <center><a name="sample" target="_blank" href= "<?php echo $file; ?>" style="width: 250px; margin-top: 40px" class="btn btn-outline-info">View Sample</a></center>
               <form class="form" method="post" action="includes/process.php">
-              <center><button style="width: 250px; margin-top: 20px" name="delete" type="delete" value=<?php echo $row_NoteStore['Notes_ID'];?> class="btn btn-outline-danger">Delete</button></center>
+              <center><button style="width: 250px; margin-top: 20px" name="delete1" type="delete" value=<?php echo $row_NoteStore['Notes_ID'];?> class="btn btn-outline-danger">Delete</button></center>
               </form>
 <?php
     }

@@ -158,7 +158,7 @@ if(isset($_POST['details'])){
 <?php
   }
 ?>
-                <button style="width: 100%; margin-top: 20px" name="delete" type="delete" value=<?php echo $row_BookStore['BookStore_Book_ID'];?> class="btn btn-outline-danger">Delete Book</button>
+                <button style="width: 100%; margin-top: 20px" name="delete" value=<?php echo $row_BookStore['BookStore_Book_ID'];?> class="btn btn-outline-danger">Delete Book</button>
               </form>
                               <div class="graph-custom-legend primary-dot" id="pageViewAnalyticLengend"></div>
                             </div>

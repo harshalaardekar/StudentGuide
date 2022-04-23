@@ -141,6 +141,27 @@ else if($_SESSION['email']==true)
     }
   }
 
+    else if(isset($_POST['delete1']))
+  {
+    $id=$_POST['delete1'];
+    $query = "DELETE FROM notesstore WHERE Notes_ID = '$id'";
+    $query_run = mysqli_query($conn, $query);
+    if($query_run){
+      $query1 = "DELETE FROM report_notesstore WHERE Notes_ID = '$id'";
+      $query1_run = mysqli_query($conn, $query1);
+      if($query1_run){
+        $query2 = "DELETE FROM notes_requests WHERE Notes_ID = '$id'";
+        $query2_run = mysqli_query($conn, $query2);
+        if($query2_run){
+          echo "<script type='text/javascript'>alert('DELETED!!!');window.location='../viewnotes.php?dept=All&sem=All';</script>";
+        }  
+        else{
+            echo mysqli_error($conn);
+        }
+      }
+    }
+  }
+
   else if(isset($_POST['uploadreview']))
   {
     $id=$_POST['uploadreview'];

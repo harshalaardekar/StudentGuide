@@ -72,6 +72,7 @@ else if($_SESSION['email']==true)
   
 
   $email= $_SESSION['email'];
+  
   if(isset($_POST['delete']))
   {
     $id=$_POST['delete'];
